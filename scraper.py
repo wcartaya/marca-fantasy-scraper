@@ -93,7 +93,7 @@ def main(argv=None):
         csv_row += ',TARJETAS_AMARILLAS_PUNTOS,SEGUNDAS_AMARILLAS_PUNTOS,TARJETAS_ROJAS_PUNTOS,TIROS_A_PUERTA_PUNTOS'
         csv_row += ',REGATES_PUNTOS,BALONES_RECUPERADOS_PUNTOS,POSESIONES_PERDIDAS_PUNTOS,PUNTOS_MARCA_PUNTOS'
         csv_content.append(csv_row)
-        for index in range(52,1500):
+        for index in range(52,1400):
             response = requests.get('%s/%s' % (players_endpoint,index))
             if response.status_code == 200:
                 payload = response.json()
@@ -150,14 +150,14 @@ def main(argv=None):
                     logger_.warning('Player with id=%s not in LaLiga anymore' % index)
             if response.status_code == 404:
                 logger_.warn('Player with id=%s not found' % index)
-        f = open('laliga/players-performance.csv', 'w', encoding='utf-8')
+        f = open('laliga/players-performance.csv', 'w')
         for item in csv_content:
-            f.write('%s\n' % item)
+            f.write(('%s\n' % item).encode("UTF-8"))
         f.close()                
 
-        f = open('laliga/players.csv', 'w', encoding='utf-8')
+        f = open('laliga/players.csv', 'w')
         for item in player_aggr_content:
-            f.write('%s\n' % item)
+            f.write(('%s\n' % item).encode("UTF-8"))
         f.close()                
 
         sys.exit(1)
