@@ -1,6 +1,8 @@
 # Marca Fantasy Scraper
-
 Web scraper del API de LaLiga Fantasy de Marca. Descarga la información existente en la Liga Fantasy Marca sobre los equipos y jugadores de la temporada. 
+
+# Versión original
+https://github.com/diegoparrilla/marca-fantasy-scraper
 
 # Cómo funciona
 Necesitas tener instalado en tu equipo Python version 3. El programa scraper.py creará un directorio llamado laliga, y dentro de este directorio encontraremos un directorio por cada equipo y dos ficheros CSV con información sobre los jugadores e información detallada del rendimiento de cada jugador.
@@ -18,7 +20,8 @@ Este fichero contiene la información de cada jugador y jornada por línea. Cada
 ## Librerías necesarias
 El programa scraper.py necesita la librería requests, por lo que debe instalarse con anterioridad:
 
-pip install -r requirements
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 
 # Ejecución
 Para ejecutar el programa, solo hay que invocar scraper.py
@@ -28,6 +31,4 @@ python scraper.py
 o 
 
 python3 scraper.py
-
-
 
